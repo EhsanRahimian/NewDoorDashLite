@@ -3,8 +3,9 @@ package com.nicootech.newdoordashlite;
 import android.os.Bundle;
 import android.view.View;
 
+
 public class RestaurantListActivity extends BaseActivity {
-    private static final String TAG = "RestaurantListActivity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,11 +17,10 @@ public class RestaurantListActivity extends BaseActivity {
             public void onClick(View v) {
                 if(mProgressBar.getVisibility()== View.VISIBLE){
                     showProgressBar(false);
-                }else{
+                }else {
                     showProgressBar(true);
                 }
             }
         });
     }
-
 }
