@@ -1,16 +1,18 @@
 package com.nicootech.newdoordashlite.repositories;
 
 import com.nicootech.newdoordashlite.model.Restaurant;
+import com.nicootech.newdoordashlite.request.RestaurantApiClient;
 
 import java.util.List;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
+
 
 public class RestaurantRepository {
-    private static RestaurantRepository instance;
-    private MutableLiveData<List<Restaurant>> mRestaurant;
 
+    private RestaurantApiClient mRestaurantApiClient;
+
+    private static RestaurantRepository instance;
 
     public static RestaurantRepository getInstance(){
         if(instance == null){
@@ -20,11 +22,11 @@ public class RestaurantRepository {
     }
 
     public RestaurantRepository() {
-        mRestaurant = new MutableLiveData<>();
+        mRestaurantApiClient = RestaurantApiClient.getInstance();
     }
 
     public LiveData<List<Restaurant>> getRestaurant(){
-        return mRestaurant;
+        return mRestaurantApiClient.getRestaurant();
     }
 
 }
