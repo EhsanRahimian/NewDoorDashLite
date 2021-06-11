@@ -77,11 +77,13 @@ public class RestaurantApiClient {
                 if(cancelRequest== true) return;
                 if(response.code()== 200){
                     List<Restaurant> list = new ArrayList<>(((RestaurantResponse)response.body()).getStores());
-                    if(offset == 0) mRestaurants.postValue(list);
-                    else {
-                        List<Restaurant>currentRestaurant = mRestaurants.getValue();
-                        currentRestaurant.addAll(list);
-                    }
+//                    if(offset == 0) mRestaurants.postValue(list);
+//                    else {
+//                        List<Restaurant>currentRestaurant = mRestaurants.getValue();
+//                        currentRestaurant.addAll(list);
+//                    }
+                    mRestaurants.postValue(list);
+
 
                 }
                 else{
